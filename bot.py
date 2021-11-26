@@ -13,6 +13,9 @@ BALANCE = 100
 def welcome(message):
  
     # keyboard
+    # keyboard
+    # keyboard
+    # keyboard
 
     markup = types.ReplyKeyboardMarkup(row_width=1)
     item1 = types.KeyboardButton("🎲 Открыть Ящик")
