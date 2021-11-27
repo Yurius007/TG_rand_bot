@@ -5,8 +5,6 @@ import random
 from telebot import types
  
 bot = telebot.TeleBot(config.TOKEN)
-global BALANCE
-BALANCE = 100
 
 
 @bot.message_handler(commands=['start'])
@@ -15,21 +13,24 @@ def welcome(message):
     # keyboard
 
     markup = types.ReplyKeyboardMarkup(row_width=1)
-    item1 = types.KeyboardButton("🎲 Открыть Ящик")
     item2 = types.KeyboardButton("😊 Как дела?")
     item3 = types.KeyboardButton("🎲 Рандомный Поззи")
  
-    markup.add(item1, item2, item3)
+    markup.add(item2, item3)
  
     bot.send_message(message.chat.id, "Добро пожаловать,\nЯ, бот созданный чтобы быть подопытным кроликом.".format(message.from_user, bot.get_me()),
         parse_mode='html', reply_markup=markup)
- 
+    
+BALANCE = 100
 @bot.message_handler(content_types=['text'])
-def Default_case(message):
+def Default_case(message): 
+    global BALANCE
+    
     if message.chat.type == 'private':
         if message.text == '🎲 Рандомный Поззи':
             chanse = int(random.randint(0,1000))
-            BALANCE + 5
+             
+            BALANCE += 5
             bal_m ="На вашем балансе осталось: " + str(BALANCE) + " $"
 
             if chanse > 0 and chanse <= 500:
