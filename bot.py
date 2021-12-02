@@ -19,6 +19,9 @@ def welcome(message):
     # sti = open('static/welcome.webp' , 'rb')
     # bot.send_sticker(message.chat.id, sti)
     # keyboard
+    # keyboard
+    # keyboard
+    # keyboard
 
     markup = types.ReplyKeyboardMarkup(row_width=1)
     item1 = types.KeyboardButton("Добыть 💸")
